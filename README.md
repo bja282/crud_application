@@ -1,7 +1,5 @@
 # crud_application
 
-# Name of Your App
-
 Python program that performs "Create", "Read", "Update" and "Destroy" (CRUD) functions on an inventory of products stored in a CSV file.
 
 ## Installation
@@ -9,7 +7,7 @@ Python program that performs "Create", "Read", "Update" and "Destroy" (CRUD) fun
 Download the source code:
 
 ```shell
-git clone remote_clone_address_of_your_repo_here
+git clone https://github.com/bja282/crud_application
 cd some/path/to/repo/
 ```
 
