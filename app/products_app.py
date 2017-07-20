@@ -35,7 +35,7 @@ def create_products():
     new_product["price"]=new_price
 
     print(new_product)
-    
+
     with open(csv_file_path, "w") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
         writer.writeheader() # uses fieldnames set above
