@@ -22,11 +22,31 @@ def show_products():
     \n''')
 
 def create_products():
+    new_product = dict.fromkeys(["id", "name", "aisle", "department", "price"])
+    new_id = len(products)+1
+    new_product["id"]=new_id
+    new_name = input("Please enter a product name: ")
+    new_product["name"]=new_name
+    new_aisle = input("Which aisle is the product in? ")
+    new_product["aisle"]=new_aisle
+    new_dept = input("Which department is the product in? ")
+    new_product["department"]=new_dept
+    new_price = input("What is the price of the item? ")
+    new_product["price"]=new_price
+
+    print(new_product)
+    
     with open(csv_file_path, "w") as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
         writer.writeheader() # uses fieldnames set above
         for product in products:
             writer.writerow(product)
+        writer.writerow(new_product)
+
+    with open(csv_file_path, "r") as csv_file:
+        reader = csv.DictReader(csv_file)
+        products.append(new_product)
+
 
 def update_products():
     print('''Woahhhhh, Updates?!
@@ -77,6 +97,3 @@ while x == 0:
             handler(user_input)
     except ValueError:
         print("Sorry, that input doesn't seem correct. Try again!")
-
-
-#code.interact(local=locals())
