@@ -11,6 +11,11 @@ with open(csv_file_path, "r") as csv_file:
 
 writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
 
+
+def reindex():
+    for x in range(0, len(products)):
+        products[x]["id"]=int(x+1)
+
 # The List operation should print information (identifiers and names at least) about each product
 # in the inventory.
 def list_products():
@@ -98,6 +103,7 @@ def destroy_products():
         if first_q.lower() == "yes":
             print("Thank you,",products[int(product_key)-1]["name"],"has been deleted.")
             del products[int(product_key)-1]
+            reindex()
     else:
         print('Sorry, that product key doesn\'t appear correct.')
 
