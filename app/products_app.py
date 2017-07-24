@@ -22,7 +22,7 @@ def list_products():
     with open(csv_file_path, "r") as csv_file:
         reader = csv.DictReader(csv_file) # assuming your CSV has headers, otherwise... csv.reader(csv_file)
         for row in reader:
-            print(row["id"],row["name"],row["aisle"],row["department"],row["price"])
+            print("+ ",row["id"],row["name"],row["aisle"],row["department"],row["price"])
 
 # The Show operation should prompt the user for a product identifier. If the product
 # identifier matches the identifier of an existing product in the inventory, the program
@@ -34,7 +34,7 @@ def show_products():
         if first_q.lower() == "yes":
             print("\n")
             for key, value in products[int(product_key)-1].items():
-                print(str(key)+":"+str(value))
+                print(str(key)+": "+str(value))
         else: pass
     else:
         print("Sorry, that product key appears incorrect.")
@@ -78,10 +78,10 @@ def update_products():
     if int(product_key) <= len(products):
         first_q = input("You selected \"{0}".format(products[int(product_key)-1]["name"]) + "\". Is that correct? (Enter yes or no) ")
         if first_q.lower() == "yes":
-            new_name = input("Please enter a product name: ")
-            new_aisle = input("Which aisle is the product in? ")
-            new_dept = input("Which department is the product in? ")
-            new_price = input("What is the price of the item? ")
+            new_name = input("Change name from " + str(products[int(product_key)-1]["name"]) + " to: ")
+            new_aisle = input("Change aisle from " + str(products[int(product_key)-1]["name"]) + " to: ")
+            new_dept = input("Change department from " + str(products[int(product_key)-1]["name"]) + " to: ")
+            new_price = input("Change price from " + str(products[int(product_key)-1]["name"]) + " to: ")
             products[int(product_key)-1]={
             'id': product_key,
             "department": new_dept,
